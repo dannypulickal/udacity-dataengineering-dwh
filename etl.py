@@ -23,15 +23,18 @@ def insert_tables(cur, conn):
 
 
 def main():
+    # Reading config file dwh.cfg
     config = configparser.ConfigParser()
     config.read('dwh.cfg')
 
+    # Creating database connection
     conn = psycopg2.connect("host={} dbname={} user={} password={} port={}".format(*config['CLUSTER'].values()))
     cur = conn.cursor()
     
-    #load_staging_tables(cur, conn)
+    load_staging_tables(cur, conn)
     insert_tables(cur, conn)
 
+    # Close database connection
     conn.close()
 
 
