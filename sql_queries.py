@@ -48,7 +48,7 @@ staging_events_table_create= ("""
 
 staging_songs_table_create = ("""
     CREATE TABLE staging_songs(
-        num_songs INTEGER NOT NULL,
+        num_songs INTEGER NULL,
         artist_id VARCHAR NULL,
         artist_latitude VARCHAR NULL,
         artist_longitude VARCHAR NULL,
@@ -63,7 +63,7 @@ staging_songs_table_create = ("""
 
 songplay_table_create = ("""
     CREATE TABLE songplays(
-        songplay_id INTEGER IDENTITY(0,1) SORTKEY, 
+        songplay_id INTEGER IDENTITY(0,1) PRIMARY KEY SORTKEY, 
         start_time TIMESTAMP NOT NULL,
         user_id INTEGER NOT NULL DISTKEY,
         level VARCHAR(10) NULL, 
@@ -77,7 +77,7 @@ songplay_table_create = ("""
 
 user_table_create = ("""
     CREATE TABLE users(
-        user_id INTEGER NOT NULL SORTKEY,
+        user_id INTEGER NOT NULL PRIMARY KEY SORTKEY,
         first_name VARCHAR(255) NULL, 
         last_name VARCHAR(255) NULL, 
         gender VARCHAR(1) NULL, 
@@ -87,7 +87,7 @@ user_table_create = ("""
 
 song_table_create = ("""
     CREATE TABLE songs(
-        song_id VARCHAR(50) NOT NULL SORTKEY,
+        song_id VARCHAR(50) NOT NULL PRIMARY KEY SORTKEY,
         title VARCHAR(500) NOT NULL, 
         artist_id VARCHAR(50) NOT NULL,
         year INTEGER NULL,
@@ -97,7 +97,7 @@ song_table_create = ("""
 
 artist_table_create = ("""
     CREATE TABLE artists(
-        artist_id VARCHAR(50) NOT NULL SORTKEY,
+        artist_id VARCHAR(50) NOT NULL PRIMARY KEY SORTKEY,
         name VARCHAR(500) NOT NULL, 
         location VARCHAR(500) NULL, 
         latitude VARCHAR(50) NULL, 
@@ -107,7 +107,7 @@ artist_table_create = ("""
 
 time_table_create = ("""
     CREATE TABLE time(
-        start_time TIMESTAMP NOT NULL SORTKEY,
+        start_time TIMESTAMP NOT NULL PRIMARY KEY SORTKEY,
         hour INTEGER NOT NULL,
         day INTEGER NOT NULL,
         week INTEGER NOT NULL,

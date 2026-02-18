@@ -32,6 +32,16 @@ A hands-on data engineering project built as part of the Udacity Data Engineerin
     - first staging tables will be filled using data from S3.
     - then fact and dimension tables will be filled using data from staging tables.
 
+## Table relation
+
+### Final Tables ERD
+
+![alt text](image.png)
+
+### Staging tables ERD
+
+![alt text](image-1.png)
+
 ## Observations
 
 ### Errors Occured
